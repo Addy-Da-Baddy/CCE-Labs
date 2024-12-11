@@ -1,0 +1,4 @@
+javac --module-path "Path to your javafx lib folder" --add-modules javafx.controls,javafx.fxml YourFile.java
+
+
+java --module-path "Path to your javafx lib folder" --add-modules javafx.controls,javafx.fxml YourFile
