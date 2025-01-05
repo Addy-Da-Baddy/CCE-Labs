@@ -1,0 +1,29 @@
+D:\230953244\Lab1\ScientificCalculator\ScientificCalculator\bin\Debug\ScientificCalculator.exe.config
+D:\230953244\Lab1\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.csprojResolveAssemblyReference.cache
+D:\230953244\Lab1\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.Form1.resources
+D:\230953244\Lab1\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.Properties.Resources.resources
+D:\230953244\Lab1\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.csproj.GenerateResource.Cache
+D:\230953244\Lab1\ScientificCalculator\ScientificCalculator\bin\Debug\ScientificCalculator.exe
+D:\230953244\Lab1\ScientificCalculator\ScientificCalculator\bin\Debug\ScientificCalculator.pdb
+D:\230953244\Lab1\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.exe
+D:\230953244\Lab1\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.pdb
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\ScientificCalculator\ScientificCalculator\bin\Debug\ScientificCalculator.exe.config
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\ScientificCalculator\ScientificCalculator\bin\Debug\ScientificCalculator.exe
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\ScientificCalculator\ScientificCalculator\bin\Debug\ScientificCalculator.pdb
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.csproj.AssemblyReference.cache
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.Form1.resources
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.Properties.Resources.resources
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.csproj.GenerateResource.cache
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.csproj.CoreCompileInputs.cache
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.exe
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.pdb
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\ScientificCalculator\ScientificCalculator\bin\Debug\ScientificCalculator.exe.config
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\ScientificCalculator\ScientificCalculator\bin\Debug\ScientificCalculator.exe
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\ScientificCalculator\ScientificCalculator\bin\Debug\ScientificCalculator.pdb
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.csproj.AssemblyReference.cache
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.Form1.resources
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.Properties.Resources.resources
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.csproj.GenerateResource.cache
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.csproj.CoreCompileInputs.cache
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.exe
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\ScientificCalculator\ScientificCalculator\obj\Debug\ScientificCalculator.pdb

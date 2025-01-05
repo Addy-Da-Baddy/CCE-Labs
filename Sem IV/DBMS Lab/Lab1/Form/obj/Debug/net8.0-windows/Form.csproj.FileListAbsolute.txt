@@ -1,0 +1,5 @@
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\Form\obj\Debug\net8.0-windows\Form.GeneratedMSBuildEditorConfig.editorconfig
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\Form\obj\Debug\net8.0-windows\Form.AssemblyInfoInputs.cache
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\Form\obj\Debug\net8.0-windows\Form.AssemblyInfo.cs
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\Form\obj\Debug\net8.0-windows\Form.csproj.CoreCompileInputs.cache
+C:\Adriteyo Academics\Labs\Sem IV\DBMS Lab\Lab1\Form\obj\Debug\net8.0-windows\Form.sourcelink.json
