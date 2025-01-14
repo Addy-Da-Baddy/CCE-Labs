@@ -1,0 +1,5 @@
+The exercise of this question is to display count of characters/words/bytes
+But not of asll files
+only files having a number
+So file1 file2 and file3
+

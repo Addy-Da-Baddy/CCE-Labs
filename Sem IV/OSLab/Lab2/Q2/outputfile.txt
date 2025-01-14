@@ -1,0 +1,2 @@
+OS Lab 1
+mov rsi, 60

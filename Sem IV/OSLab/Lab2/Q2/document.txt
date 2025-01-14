@@ -1,0 +1,11 @@
+OS Lab 1
+This is a sample document
+This is some sample text
+random stuff
+etc. etc.
+banana orange pinaple
+hi
+mov rsi, 60
+syscall
+child and parent process
+

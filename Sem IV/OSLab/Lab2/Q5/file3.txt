@@ -1,0 +1,4 @@
+This is for OS Lab2
+This lab is teaching us advanced bash commands
+I also learned chmod and process handling
+
