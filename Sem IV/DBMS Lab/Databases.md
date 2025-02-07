@@ -23,3 +23,28 @@ SHIPMENT (order#: int, warehouse#: int, shipdate: date)
 WAREHOUSE (warehouse#:int, city: varchar(30))
 ```
 
+**Database 3: Student Enrollment**
+
+```sql
+STUDENT (regno: varchar(20), name: varchar(50), major: varchar(20),
+bdate:date)
+COURSE (course#:int, cname: varchar(30), dept: varchar(30))
+ENROLL (regno: varchar(20), course#:int, sem:int,
+book_isbn:int)
+BOOK_ADOPTION (course#:int, sem:int, book_isbn:int)
+TEXT (book_isbn:int, booktitle: varchar(50), publisher: varchar(50), author:
+varchar(50))
+```
+
+SELECT b.book_isbn, b.booktitle
+FROM TEXT b
+WHERE b.book_isbn IN (
+    SELECT ba.book_isbn
+    FROM BOOK_ADOPTION ba
+    WHERE ba.course_num IN (
+        SELECT e.course_num
+        FROM ENROLL e
+        WHERE e.book_isbn = ba.book_isbn
+    )
+);
+
