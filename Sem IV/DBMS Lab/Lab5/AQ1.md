@@ -42,19 +42,22 @@ WHERE order# NOT IN (
 
 ```
 
-## 4. Display all those orders which have not been shipped yet
+## 4. Find the item which has been bought by most of the customers
 
 ```sql
-SELECT distinct dept
-FROM COURSE c
-WHERE NOT EXISTS (
-    SELECT *
-    FROM BOOK_ADOPTION b
-    JOIN TEXT t ON b.book_isbn = t.book_isbn
-    WHERE c.course_num = b.course_num
-    AND t.publisher != 'Pearson'
-)
-GROUP BY dept;
+SELECT item#
+FROM ORDER_ITEMS
+GROUP BY item#
+HAVING COUNT(DISTINCT order#) = (
+    SELECT MAX(customer_count)
+    FROM (
+        SELECT item#, COUNT(DISTINCT O.cust#) AS customer_count
+        FROM ORDER_ITEMS OI
+        JOIN ORDERS O ON OI.order# = O.order#
+        GROUP BY item#
+    ) AS item_customer_counts
+);
+
 ```
 
 ## 5. Select all those items which have not been bought by any customer.
