@@ -12,7 +12,7 @@ BEGIN
     FROM Participated p
     JOIN Accident a ON p.REPORT_NUMBER = a.REPORT_NUMBER
     WHERE p.DRIVER_ID = p_driver_id
-      AND EXTRACT(YEAR FROM a.ACCD_DATE) = p_year;
+    AND EXTRACT(YEAR FROM a.ACCD_DATE) = p_year;
 
     DBMS_OUTPUT.PUT_LINE('Total Damage for Driver ' || p_driver_id || ' in ' || p_year || ' is: ' || total_damage);
 END get_total_damage;
