@@ -1,0 +1,10 @@
+D:\230953536\Frontend_InsuranceDB\Frontend_InsuranceDB\bin\Debug\Frontend_InsuranceDB.exe.config
+D:\230953536\Frontend_InsuranceDB\Frontend_InsuranceDB\obj\Debug\Frontend_InsuranceDB.csprojResolveAssemblyReference.cache
+D:\230953536\Frontend_InsuranceDB\Frontend_InsuranceDB\obj\Debug\Frontend_InsuranceDB.Properties.Resources.resources
+D:\230953536\Frontend_InsuranceDB\Frontend_InsuranceDB\obj\Debug\Frontend_InsuranceDB.csproj.GenerateResource.Cache
+D:\230953536\Frontend_InsuranceDB\Frontend_InsuranceDB\obj\Debug\Frontend_InsuranceDB.Form1.resources
+D:\230953536\Frontend_InsuranceDB\Frontend_InsuranceDB\bin\Debug\Frontend_InsuranceDB.exe
+D:\230953536\Frontend_InsuranceDB\Frontend_InsuranceDB\bin\Debug\Frontend_InsuranceDB.pdb
+D:\230953536\Frontend_InsuranceDB\Frontend_InsuranceDB\bin\Debug\Oracle.DataAccess.dll
+D:\230953536\Frontend_InsuranceDB\Frontend_InsuranceDB\obj\Debug\Frontend_InsuranceDB.exe
+D:\230953536\Frontend_InsuranceDB\Frontend_InsuranceDB\obj\Debug\Frontend_InsuranceDB.pdb
