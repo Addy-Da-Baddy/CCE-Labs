@@ -35,6 +35,7 @@ void* philosopher(void* num) {
 }
 
 int main() {
+    printf("Dining Philosopher\n");
     pthread_t threads[NUM_PHILOSOPHERS];
     int ids[NUM_PHILOSOPHERS];
 

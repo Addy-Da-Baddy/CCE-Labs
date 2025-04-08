@@ -1,39 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h> // For sleep()
+#include <unistd.h> 
 
-// Function for FIFO Page Replacement
 void fifoPageReplacement(int pages[], int numPages, int numFrames) {
     int *frames = (int *)malloc(numFrames * sizeof(int));
     int pageFaults = 0, pageHits = 0, current = 0;
 
     for (int i = 0; i < numFrames; i++) {
-        frames[i] = -1; // Initialize frames as empty (-1)
+        frames[i] = -1; 
     }
 
     for (int i = 0; i < numPages; i++) {
         int found = 0;
 
-        // Simulate processing delay for user experience
         printf("\nProcessing page %d...\n", pages[i]);
-        sleep(1); // 1-second delay to simulate "working" feel
+        sleep(1); 
 
-        // Check for page hit
         for (int j = 0; j < numFrames; j++) {
             if (frames[j] == pages[i]) {
-                found = 1; // Page hit
+                found = 1; 
                 pageHits++;
                 break;
             }
         }
 
-        if (!found) { // Page fault
+        if (!found) { 
             frames[current] = pages[i];
-            current = (current + 1) % numFrames; // FIFO replacement
+            current = (current + 1) % numFrames; 
             pageFaults++;
         }
 
-        // Display frame status
         printf("Page %d: %s\n", pages[i], found ? "Hit" : "Fault");
         printf("Frame status: ");
         for (int j = 0; j < numFrames; j++) {
@@ -44,7 +40,7 @@ void fifoPageReplacement(int pages[], int numPages, int numFrames) {
             }
         }
         printf("\n");
-        sleep(1); // Additional coolness delay
+        sleep(1); 
     }
 
     // Summary of FIFO
@@ -62,17 +58,15 @@ void optimalPageReplacement(int pages[], int numPages, int numFrames) {
     int pageFaults = 0, pageHits = 0;
 
     for (int i = 0; i < numFrames; i++) {
-        frames[i] = -1; // Initialize frames as empty (-1)
+        frames[i] = -1; 
     }
 
     for (int i = 0; i < numPages; i++) {
         int found = 0;
 
-        // Simulate processing delay for user experience
         printf("\nProcessing page %d...\n", pages[i]);
-        sleep(1); // 1-second delay to simulate "working" feel
+        sleep(1); 
 
-        // Check for page hit
         for (int j = 0; j < numFrames; j++) {
             if (frames[j] == pages[i]) {
                 found = 1; // Page hit
@@ -141,10 +135,10 @@ int main() {
     printf("Enter the number of frames: ");
     scanf("%d", &numFrames);
 
-    printf("\n--- FIFO Page Replacement ---\n");
+    printf("\nFIFO Page Replacement \n");
     fifoPageReplacement(pages, numPages, numFrames);
 
-    printf("\n--- Optimal Page Replacement ---\n");
+    printf("\nOptimal Page Replacement\n");
     optimalPageReplacement(pages, numPages, numFrames);
 
     free(pages);

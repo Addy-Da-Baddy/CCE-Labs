@@ -1,4 +1,4 @@
-#!/bin/bash
+ #!/bin/bash
 if [ -z "$1" ]; then
     echo "Usage: $0 <source_file.c>"
     exit 1
@@ -22,5 +22,5 @@ if [ $? -eq 0 ]; then
 else
     echo "Compilation failed!"
     exit 1
-fi
-
+ fi
+ 

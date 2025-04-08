@@ -72,6 +72,8 @@ int main() {
     return 0;
 }
 
+
+
 void preemptive_sjf(Process p[], int n) {
     int time = 0, completed = 0, min_index;
     while (completed != n) {

@@ -71,6 +71,7 @@ void non_preemptive_sjf(Process p[], int n) {
 }
 
 void display(Process p[], int n) {
+    printf("Shortest Job First\n: " );
     printf("\nProcess ID\tArrival Time\tBurst Time\tWaiting Time\tTurnaround Time\n");
     for (int i = 0; i < n; i++) {
         printf("%d\t\t%d\t\t%d\t\t%d\t\t%d\n", p[i].id, p[i].arrivalTime, p[i].burstTime, p[i].waitingTime, p[i].turnaroundTime);

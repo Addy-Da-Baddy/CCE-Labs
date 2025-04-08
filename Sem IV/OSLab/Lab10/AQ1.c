@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h> // For sleep()
+#include <unistd.h> 
 
 void lruPageReplacement(int pages[], int numPages, int numFrames) {
     int *frames = (int *)malloc(numFrames * sizeof(int));
@@ -8,27 +8,25 @@ void lruPageReplacement(int pages[], int numPages, int numFrames) {
     int pageFaults = 0, pageHits = 0, clock = 0;
 
     for (int i = 0; i < numFrames; i++) {
-        frames[i] = -1; // Initialize frames as empty (-1)
-        time[i] = 0;    // Initialize time stamps
+        frames[i] = -1; 
+        time[i] = 0;    
     }
 
     for (int i = 0; i < numPages; i++) {
         int found = 0;
 
         printf("\nProcessing page %d...\n", pages[i]);
-        sleep(1); // Simulate processing delay
-
-        // Check for page hit
+        sleep(1); 
         for (int j = 0; j < numFrames; j++) {
             if (frames[j] == pages[i]) {
-                found = 1; // Page hit
+                found = 1; 
                 pageHits++;
-                time[j] = clock++; // Update time for the hit frame
+                time[j] = clock++; 
                 break;
             }
         }
 
-        if (!found) { // Page fault
+        if (!found) { 
             int lruIndex = 0, minTime = time[0];
             for (int j = 1; j < numFrames; j++) {
                 if (time[j] < minTime) {
@@ -41,7 +39,6 @@ void lruPageReplacement(int pages[], int numPages, int numFrames) {
             pageFaults++;
         }
 
-        // Display frame status
         printf("Page %d: %s\n", pages[i], found ? "Hit" : "Fault");
         printf("Frame status: ");
         for (int j = 0; j < numFrames; j++) {
@@ -52,10 +49,9 @@ void lruPageReplacement(int pages[], int numPages, int numFrames) {
             }
         }
         printf("\n");
-        sleep(1); // Additional delay
+        sleep(1);
     }
 
-    // Summary of LRU
     float faultRate = (float)pageFaults / numPages * 100;
     printf("\nLRU Summary:\n");
     printf("Total Page Faults: %d\n", pageFaults);

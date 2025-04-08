@@ -1,151 +1,159 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define MAX_PROCESSES 10
-#define MAX_RESOURCES 10
+#define MAX_PROCESSES 5
+#define MAX_RESOURCES 3
 
-int Allocation[MAX_PROCESSES][MAX_RESOURCES];
-int Max[MAX_PROCESSES][MAX_RESOURCES];
-int Need[MAX_PROCESSES][MAX_RESOURCES];
-int Available[MAX_RESOURCES];
-
-int n, m;  // Number of processes and resources
-
-void calculateNeed() {
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            Need[i][j] = Max[i][j] - Allocation[i][j];
-        }
-    }
+// Function to calculate the 'Need' matrix
+void calculateNeed(int need[MAX_PROCESSES][MAX_RESOURCES], int max[MAX_PROCESSES][MAX_RESOURCES], int allot[MAX_PROCESSES][MAX_RESOURCES], int num_processes, int num_resources) {
+    for (int i = 0; i < num_processes; i++)
+        for (int j = 0; j < num_resources; j++)
+            need[i][j] = max[i][j] - allot[i][j];
 }
 
-// Function to check if a process can execute
-bool canExecute(int process, int Work[]) {
-    for (int j = 0; j < m; j++) {
-        if (Need[process][j] > Work[j]) {
-            return false;
-        }
-    }
-    return true;
-}
+// Function to simulate Banker's Algorithm and check if the system is in a safe state
+bool BankersAlgo(int avail[], int max[][MAX_RESOURCES], int allot[][MAX_RESOURCES], int num_processes, int num_resources) {
+    int need[MAX_PROCESSES][MAX_RESOURCES];
+    calculateNeed(need, max, allot, num_processes, num_resources);
 
-// Safety algorithm to check if the system is in a safe state
-bool isSafe(int safeSequence[]) {
-    int Work[MAX_RESOURCES];
-    bool Finish[MAX_PROCESSES] = {false};
-    
-    for (int i = 0; i < m; i++) {
-        Work[i] = Available[i];
+    bool finish[MAX_PROCESSES] = {0}; // To track if a process has finished
+    int safeSequence[MAX_PROCESSES];  // To store the safe sequence
+    int work[MAX_RESOURCES];
+
+    for (int i = 0; i < num_resources; i++) {
+        work[i] = avail[i];  // Initialize work array with available resources
     }
 
-    int count = 0;
-    while (count < n) {
+    int count = 0; // To count the number of processes that can finish
+    while (count < num_processes) {
         bool found = false;
-        for (int i = 0; i < n; i++) {
-            if (!Finish[i] && canExecute(i, Work)) {
-                for (int j = 0; j < m; j++) {
-                    Work[j] += Allocation[i][j];
+        for (int p = 0; p < num_processes; p++) {
+            if (!finish[p]) {
+                int j;
+                // Check if the process can be completed with the available resources
+                for (j = 0; j < num_resources; j++) {
+                    if (need[p][j] > work[j]) {
+                        break;
+                    }
                 }
-                safeSequence[count++] = i;
-                Finish[i] = true;
-                found = true;
+
+                if (j == num_resources) {
+                    // Process can be completed
+                    for (int k = 0; k < num_resources; k++) {
+                        work[k] += allot[p][k];  // Release the resources allocated to this process
+                    }
+
+                    safeSequence[count++] = p;  // Add the process to the safe sequence
+                    finish[p] = 1;  // Mark process as finished
+                    found = true;
+                    break; // Proceed to check the next process
+                }
             }
         }
+
         if (!found) {
-            return false;  // No safe sequence found, system is in deadlock
+            // If no process can be finished, the system is in a deadlock state
+            printf("System is not in a safe state, deadlocked.\n");
+            return false;
         }
     }
+
+    // If the loop completes successfully, the system is in a safe state
+    printf("System is in a safe state\nSafe sequence is: ");
+    for (int i = 0; i < count; i++) {
+        printf("%d ", safeSequence[i]);
+    }
+    printf("\n");
+
     return true;
 }
 
-// Resource request algorithm
-bool requestResources(int process, int request[]) {
-    // Check if request exceeds Need
-    for (int i = 0; i < m; i++) {
-        if (request[i] > Need[process][i]) {
-            printf("Error: Process %d requested more than its maximum need!\n", process);
+// Function to handle resource requests
+bool requestResources(int process_id, int request[], int avail[], int max[][MAX_RESOURCES], int allot[][MAX_RESOURCES], int num_processes, int num_resources) {
+    int need[MAX_PROCESSES][MAX_RESOURCES];
+    calculateNeed(need, max, allot, num_processes, num_resources);
+
+    // Check if request is less than need
+    for (int j = 0; j < num_resources; j++) {
+        if (request[j] > need[process_id][j]) {
+            printf("Error: Process has exceeded its maximum claim.\n");
             return false;
         }
     }
 
-    // Check if request exceeds Available resources
-    for (int i = 0; i < m; i++) {
-        if (request[i] > Available[i]) {
-            printf("Process %d must wait, insufficient resources.\n", process);
+    // Check if request is less than available resources
+    for (int j = 0; j < num_resources; j++) {
+        if (request[j] > avail[j]) {
+            printf("Resources are not available.\n");
             return false;
         }
     }
 
-    // Pretend allocation (temporary allocation for safety check)
-    for (int i = 0; i < m; i++) {
-        Available[i] -= request[i];
-        Allocation[process][i] += request[i];
-        Need[process][i] -= request[i];
+    // Pretend to allocate requested resources
+    for (int j = 0; j < num_resources; j++) {
+        avail[j] -= request[j];
+        allot[process_id][j] += request[j];
+        need[process_id][j] -= request[j];
     }
 
-    // Check if system remains in a safe state
-    int safeSequence[MAX_PROCESSES];
-    if (isSafe(safeSequence)) {
-        printf("Request granted. System remains in safe state.\n");
+    // Check if the new state is safe
+    if (BankersAlgo(avail, max, allot, num_processes, num_resources)) {
+        printf("Request can be granted.\n");
         return true;
     } else {
-        // Rollback allocation
-        printf("Request denied. System would enter an unsafe state!\n");
-        for (int i = 0; i < m; i++) {
-            Available[i] += request[i];
-            Allocation[process][i] -= request[i];
-            Need[process][i] += request[i];
+        // Rollback if not safe
+        for (int j = 0; j < num_resources; j++) {
+            avail[j] += request[j];
+            allot[process_id][j] -= request[j];
+            need[process_id][j] += request[j];
         }
+        printf("Request cannot be granted as it leads to an unsafe state.\n");
         return false;
     }
 }
 
 int main() {
+    printf("BankersAlgo\n");
+    int num_processes, num_resources;
     printf("Enter number of processes: ");
-    scanf("%d", &n);
-    printf("Enter number of resource types: ");
-    scanf("%d", &m);
+    scanf("%d", &num_processes);
+    printf("Enter number of resources: ");
+    scanf("%d", &num_resources);
 
-    printf("Enter Allocation Matrix:\n");
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++)
-            scanf("%d", &Allocation[i][j]);
-
-    printf("Enter Max Matrix:\n");
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++)
-            scanf("%d", &Max[i][j]);
-
-    printf("Enter Available Resources:\n");
-    for (int i = 0; i < m; i++)
-        scanf("%d", &Available[i]);
-
-    // Calculate Need Matrix
-    calculateNeed();
-
-    // Check if system is in a safe state
-    int safeSequence[MAX_PROCESSES];
-    if (isSafe(safeSequence)) {
-        printf("System is in a SAFE state. Safe sequence: ");
-        for (int i = 0; i < n; i++) {
-            printf("P%d ", safeSequence[i]);
-        }
-        printf("\n");
-    } else {
-        printf("System is in DEADLOCK!\n");
+    int avail[MAX_RESOURCES];  // Available resources
+    printf("Enter available resources: ");
+    for (int i = 0; i < num_resources; i++) {
+        scanf("%d", &avail[i]);
     }
 
-    // Simulating a resource request
-    int process;
-    int request[MAX_RESOURCES];
-    
-    printf("Enter process number making a request: ");
-    scanf("%d", &process);
-    printf("Enter resource request vector:\n");
-    for (int i = 0; i < m; i++)
-        scanf("%d", &request[i]);
+    int max[MAX_PROCESSES][MAX_RESOURCES];  // Maximum resources needed by each process
+    printf("Enter maximum resources for each process:\n");
+    for (int i = 0; i < num_processes; i++) {
+        for (int j = 0; j < num_resources; j++) {
+            scanf("%d", &max[i][j]);
+        }
+    }
 
-    requestResources(process, request);
+    int allot[MAX_PROCESSES][MAX_RESOURCES];  // Allocated resources for each process
+    printf("Enter allocated resources for each process:\n");
+    for (int i = 0; i < num_processes; i++) {
+        for (int j = 0; j < num_resources; j++) {
+            scanf("%d", &allot[i][j]);
+        }
+    }
+
+    BankersAlgo(avail, max, allot, num_processes, num_resources);
+
+    // Example resource request
+    int process_id, request[MAX_RESOURCES];
+    printf("Enter process ID for resource request: ");
+    scanf("%d", &process_id);
+    printf("Enter resource request: ");
+    for (int i = 0; i < num_resources; i++) {
+        scanf("%d", &request[i]);
+    }
+
+    requestResources(process_id, request, avail, max, allot, num_processes, num_resources);
 
     return 0;
 }

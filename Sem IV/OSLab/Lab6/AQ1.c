@@ -57,6 +57,7 @@ void fcfs(Process p[], int n) {
 }
 
 void display(Process p[], int n) {
+    printf("First Come First Serve\n: " );
     printf("\nProcess ID\tArrival Time\tBurst Time\tWaiting Time\tTurnaround Time\n");
     for (int i = 0; i < n; i++) {
         printf("%d\t\t%d\t\t%d\t\t%d\t\t%d\n", p[i].id, p[i].arrivalTime, p[i].burstTime, p[i].waitingTime, p[i].turnaroundTime);

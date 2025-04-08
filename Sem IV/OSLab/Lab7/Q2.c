@@ -48,6 +48,7 @@ void *writer(void *arg) {
 
 int main() {
     pthread_t readers[5], writers[2];
+    printf("Reader-Writer\n");
     int reader_ids[5] = {1, 2, 3, 4, 5};
     int writer_ids[2] = {1, 2};
 

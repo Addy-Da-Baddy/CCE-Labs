@@ -54,6 +54,8 @@ void *consumer(void *arg) {
 int main() {
     pthread_t prod, cons;
 
+    printf("Producer-Consumer\n");
+
     sem_init(&empty, 0, BUFFER_SIZE);
     sem_init(&full, 0, 0);
     sem_init(&mutex, 0, 1);
@@ -70,3 +72,4 @@ int main() {
 
     return 0;
 }
+
