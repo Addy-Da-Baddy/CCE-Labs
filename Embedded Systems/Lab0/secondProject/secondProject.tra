@@ -1,0 +1,19 @@
+*** Creating Trace Output File 'secondProject.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"secondproject.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 "secondproject.o" 
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x10000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\secondProject.map" -o secondProject.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'secondProject.axf'
+### ADS-LD Command File: 'secondProject.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'secondProject.lnp', Handle=0x000011D8
+### Writing '.lnp' file
+### ADS-LD Command file 'secondProject.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.
