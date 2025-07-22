@@ -1,0 +1,1 @@
+secondProject.o: secondProject.asm
