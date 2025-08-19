@@ -1,0 +1,164 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 10001000        DCD              0x10001000
+    6 00000004 00000000        DCD              Reset_Handler
+    7 00000008                 ALIGN
+    8 00000008         
+    9 00000008                 AREA             mycode, CODE, READONLY
+   10 00000000                 ENTRY
+   11 00000000                 EXPORT           Reset_Handler
+   12 00000000         
+   13 00000000         Reset_Handler
+   14 00000000 4811            LDR              R0, = NUM1
+   15 00000002 4912            LDR              R1, = NUM2
+   16 00000004 F04F 0204       MOV              R2, #4
+   17 00000008 4E11            LDR              R6, = RES
+   18 0000000A 2700            MOVS             R7, #0
+   19 0000000C         
+   20 0000000C         Up
+   21 0000000C F850 3B04       LDR              R3, [R0], #4
+   22 00000010 F851 4B04       LDR              R4, [R1], #4
+   23 00000014 EB53 0504       ADCS             R5,R3,R4
+   24 00000018 F1A2 0201       SUB              R2,#1
+   25 0000001C F092 0F00       TEQ              R2,#0
+   26 00000020 F846 5B04       STR              R5,[R6], #4
+   27 00000024 D1F2            BNE              Up
+   28 00000026         
+   29 00000026         
+   30 00000026         
+   31 00000026         
+   32 00000026 E7FE    STOP    B                STOP
+   33 00000028 0ABCDF12 
+              00012345 
+              0000DCEF 
+              00AB1234 NUM1    DCD              0xABCDF12, 0x12345, 0xDCEF, 0xA
+B1234
+   34 00000038 00103221 
+              21231223 
+              0023FE1A 
+              00AB564E NUM2    DCD              0x103221, 0x21231223, 0x23FE1A,
+ 0xAB564E
+   35 00000048 00000000 
+              00000000 
+              00000000         AREA             mydata, DATA, READWRITE
+   36 00000000 00000000 
+              00000000 
+              00000000 
+              00000000 RES     DCD              0,0,0,0
+   37 00000010         
+   38 00000010         
+   39 00000010                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=Q2.d -oQ
+2.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\NXP\LP
+C177x_8x --predefine="__EVAL SETA 1" --list=Q2.lst Q2.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file Q2.asm
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file Q2.asm
+   Uses
+      At line 2 in file Q2.asm
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+NUM1 00000028
+
+Symbol: NUM1
+   Definitions
+      At line 33 in file Q2.asm
+   Uses
+      At line 14 in file Q2.asm
+Comment: NUM1 used once
+NUM2 00000038
+
+Symbol: NUM2
+   Definitions
+      At line 34 in file Q2.asm
+   Uses
+      At line 15 in file Q2.asm
+Comment: NUM2 used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 13 in file Q2.asm
+   Uses
+      At line 6 in file Q2.asm
+      At line 11 in file Q2.asm
+
+STOP 00000026
+
+Symbol: STOP
+   Definitions
+      At line 32 in file Q2.asm
+   Uses
+      At line 32 in file Q2.asm
+Comment: STOP used once
+Up 0000000C
+
+Symbol: Up
+   Definitions
+      At line 20 in file Q2.asm
+   Uses
+      At line 27 in file Q2.asm
+Comment: Up used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 9 in file Q2.asm
+   Uses
+      None
+Comment: mycode unused
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RES 00000000
+
+Symbol: RES
+   Definitions
+      At line 36 in file Q2.asm
+   Uses
+      At line 17 in file Q2.asm
+Comment: RES used once
+mydata 00000000
+
+Symbol: mydata
+   Definitions
+      At line 35 in file Q2.asm
+   Uses
+      None
+Comment: mydata unused
+2 symbols
+343 symbols in table

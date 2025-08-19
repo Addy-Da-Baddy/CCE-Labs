@@ -2,34 +2,38 @@
     EXPORT __Vectors
 
 __Vectors
-    DCD 0x10001000
-    DCD Reset_Handler
+    DCD 0x10001000        
+    DCD Reset_Handler    
     ALIGN
 
     AREA mycode, CODE, READONLY
     ENTRY
-    EXPORT Reset_Handler
+    EXPORT Reset_Handler        
 
 Reset_Handler
-    LDR R0, =HEX_NUM        ; Address of hex input
-    LDR R1, =BCD_RESULT     ; Address to store BCD output
-    LDRB R2, [R0]           ; Load hex number (e.g., 0x19)
+        LDR R0, =NUMS         
+        MOV R1, #10            
+        MOV R2, #0             
+        MOV R4, #0             
 
-    MOV R3, R2              ; Copy to R3
-    MOV R4, #10
-    UDIV R5, R3, R4         ; R5 = R3 / 10 ? tens digit
-    MLS R6, R5, R4, R3      ; R6 = R3 - (R5 × 10) ? units digit
+Loop
+        LDR R3, [R0], #4       
+        ADDS R2, R2, R3        
+        ADC  R4, R4, #0        
+        SUBS R1, R1, #1
+        BNE Loop
 
-    LSL R5, R5, #4          ; Shift tens digit to upper nibble
-    ORR R7, R5, R6          ; Combine tens and units ? packed BCD
+        LDR R5, =RESULT        
+        STR R2, [R5]           
+        STR R4, [R5, #4]      
 
-    STRB R7, [R1]           ; Store result
+        B Stop
 
-STOP
-    B STOP                  ; Infinite loop
+Stop    B Stop
 
-    AREA mydata, DATA, READWRITE
-HEX_NUM     DCB 0x19         ; Hex input: 25 in decimal
-BCD_RESULT  DCB 0x00         ; Placeholder for BCD result
+NUMS    DCD 0xFFFFFFF0, 0xABCDEF01, 0x80000000, 0x11111111, 0x22222222, 0x33333333, 0x44444444, 0x55555555, 0x66666666, 0x77777777
 
-    END
+        AREA mydata, DATA, READWRITE
+RESULT  DCD 0, 0               
+
+        END

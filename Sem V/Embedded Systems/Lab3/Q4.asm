@@ -15,18 +15,19 @@ Reset_Handler
 	LDR R1, = NUM2
 	MOV R2, #4
 	LDR R6, = RES
-	CMP R0, R0
+	MOV R7, #0x20000000    
+	MSR APSR_nzcvq, R7
 	
 Up
 	LDR R3, [R0], #4
 	LDR R4, [R1], #4
-	ADCS R5,R3,R4
+	SBCS R5,R3,R4
 	SUB R2,#1
 	TEQ R2,#0
 	STR R5,[R6], #4
 	BNE Up
 
-	
+
 	
 
 STOP B STOP                

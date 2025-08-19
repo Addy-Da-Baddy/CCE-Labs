@@ -1,0 +1,166 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 10001000        DCD              0x10001000
+    6 00000004 00000000        DCD              Reset_Handler
+    7 00000008                 ALIGN
+    8 00000008         
+    9 00000008                 AREA             mycode, CODE, READONLY
+   10 00000000                 ENTRY
+   11 00000000                 EXPORT           Reset_Handler
+   12 00000000         
+   13 00000000         Reset_Handler
+   14 00000000 480C            LDR              R0, =NUM1
+   15 00000002 490D            LDR              R1, =NUM2
+   16 00000004 F8DF A034       LDR              R10, =RES
+   17 00000008 6804            LDR              R4, [R0]
+   18 0000000A 680D            LDR              R5, [R1]
+   19 0000000C F04F 0201       MOV              R2, #1
+   20 00000010         
+   21 00000010         Loop
+   22 00000010 FB04 F602       MUL              R6, R4, R2
+   23 00000014 FBB6 F7F5       UDIV             R7, R6, R5
+   24 00000018 FB07 6315       MLS              R3, R7, R5, R6
+   25 0000001C 2B00            CMP              R3, #0
+   26 0000001E D002            BEQ              Return
+   27 00000020 F102 0201       ADD              R2, R2, #1
+   28 00000024 E7F4            B                Loop
+   29 00000026         
+   30 00000026         Return
+   31 00000026 F8CA 6000       STR              R6, [R10]
+   32 0000002A         
+   33 0000002A         STOP
+   34 0000002A E7FE            B                STOP
+   35 0000002C 00000004 
+                       NUM1    DCD              4
+   36 00000030 00000006 
+                       NUM2    DCD              6
+   37 00000034 00000000 
+              00000000 
+              00000000         AREA             mydata, DATA, READWRITE
+   38 00000000         
+   39 00000000 00000000 
+                       RES     DCD              0
+   40 00000004         
+   41 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=Q5.d -oQ
+5.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\NXP\LP
+C17xx --predefine="__EVAL SETA 1" --list=Q5.lst Q5.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file Q5.asm
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file Q5.asm
+   Uses
+      At line 2 in file Q5.asm
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Loop 00000010
+
+Symbol: Loop
+   Definitions
+      At line 21 in file Q5.asm
+   Uses
+      At line 28 in file Q5.asm
+Comment: Loop used once
+NUM1 0000002C
+
+Symbol: NUM1
+   Definitions
+      At line 35 in file Q5.asm
+   Uses
+      At line 14 in file Q5.asm
+Comment: NUM1 used once
+NUM2 00000030
+
+Symbol: NUM2
+   Definitions
+      At line 36 in file Q5.asm
+   Uses
+      At line 15 in file Q5.asm
+Comment: NUM2 used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 13 in file Q5.asm
+   Uses
+      At line 6 in file Q5.asm
+      At line 11 in file Q5.asm
+
+Return 00000026
+
+Symbol: Return
+   Definitions
+      At line 30 in file Q5.asm
+   Uses
+      At line 26 in file Q5.asm
+Comment: Return used once
+STOP 0000002A
+
+Symbol: STOP
+   Definitions
+      At line 33 in file Q5.asm
+   Uses
+      At line 34 in file Q5.asm
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 9 in file Q5.asm
+   Uses
+      None
+Comment: mycode unused
+7 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RES 00000000
+
+Symbol: RES
+   Definitions
+      At line 39 in file Q5.asm
+   Uses
+      At line 16 in file Q5.asm
+Comment: RES used once
+mydata 00000000
+
+Symbol: mydata
+   Definitions
+      At line 37 in file Q5.asm
+   Uses
+      None
+Comment: mydata unused
+2 symbols
+344 symbols in table
