@@ -15,8 +15,9 @@ This repository contains the complete collection of laboratory codes developed a
 - [OSLab](./Sem%20IV/OSLab)
 
 ### Sem V
-- [Embedded_Systems](./Sem%20V/Embedded_Systems)
-- [Information_Security](./Sem%20V/Information_Security)
+- [Embedded_Systems](./Sem%20V/Embedded%20Systems)
+- [Information_Security](./Sem%20V/Information%20Security)
+
 
 ---
 
