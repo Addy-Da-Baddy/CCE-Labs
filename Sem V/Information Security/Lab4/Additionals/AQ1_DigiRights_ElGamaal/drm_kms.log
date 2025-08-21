@@ -1,0 +1,12 @@
+2025-08-21 11:31:08,991 - WARNING - No stored keys found, generate keys first.
+2025-08-21 11:31:10,087 - INFO - Generated ElGamal key pair
+2025-08-21 11:31:10,089 - INFO - Master ElGamal key pair generated
+2025-08-21 11:31:10,142 - INFO - Content encrypted with AES + ElGamal hybrid encryption
+2025-08-21 11:31:10,142 - INFO - Granted access to customer customer1 for content movie1 until 2025-08-21 12:31:10.142533
+2025-08-21 11:31:10,142 - INFO - Distributed master private key to customer1
+2025-08-21 11:31:10,173 - INFO - Content decrypted successfully
+2025-08-21 11:31:10,173 - INFO - Revoked access for customer customer1 on content movie1
+2025-08-21 11:31:10,173 - WARNING - Master key revoked and storage cleared
+2025-08-21 11:31:16,089 - INFO - Generated ElGamal key pair
+2025-08-21 11:31:16,090 - INFO - Master ElGamal key pair generated
+2025-08-21 11:31:16,090 - INFO - Master key renewed

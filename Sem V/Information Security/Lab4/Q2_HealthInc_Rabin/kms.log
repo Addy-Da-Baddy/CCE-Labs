@@ -1,0 +1,8 @@
+2025-08-21 11:26:41,928 - INFO - Key generated for facility: Hospital_A
+2025-08-21 11:26:41,932 - INFO - Keys retrieved for facility: Hospital_A
+2025-08-21 11:26:41,996 - INFO - Keys revoked for facility: Hospital_A
+2025-08-21 11:26:41,997 - WARNING - Key request failed: Hospital_A keys revoked.
+2025-08-21 11:26:42,337 - INFO - Keys renewed for facility: Hospital_A
+2025-08-21 11:26:42,337 - INFO - Keys retrieved for facility: Hospital_A
+2025-08-21 11:26:42,848 - INFO - Keys renewed for facility: Hospital_A
+2025-08-21 11:26:42,848 - INFO - All active keys renewed.
