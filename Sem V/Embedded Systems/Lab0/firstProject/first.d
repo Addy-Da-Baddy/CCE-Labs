@@ -1,1 +1,0 @@
-first.o: first.asm
