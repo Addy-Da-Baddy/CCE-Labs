@@ -1,49 +1,48 @@
-    AREA RESET, DATA, READONLY
-    EXPORT __Vectors
+        AREA SEARCH, DATA, READONLY
+        EXPORT __Vectors
 
 __Vectors
-    DCD 0x10001000        
-    DCD Reset_Handler    
-    ALIGN
+        DCD 0x10001000
+        DCD Reset_Handler
+        ALIGN
 
-    AREA mycode, CODE, READONLY
-    ENTRY
-    EXPORT Reset_Handler
+;-----------------------------------------
+        AREA mycode, CODE, READONLY
+        ENTRY
+        EXPORT Reset_Handler
 
 Reset_Handler
-    LDR R0, = NUM1        ; R0 = base address of array
-    MOV R1, #5           ; R1 = hardcoded array length
-    MOV R2, #0            ; R2 = index (i)
-    MOV R3, #0xDCEF            ; R3 = target value to search
+        LDR   R0, =ARRAY       ; pointer to array
+        LDR   R1, =TARGET      ; pointer to target value
+        LDR   R2, [R1]         ; load target value
+        LDR   R3, =RESULT      ; pointer to result
+        MOV   R4, #0           ; index counter
+        MOV   R5, #10          ; array length
 
-search_loop
-    CMP R2, R1
-    BGE not_found         ; if i >= length, not found
+Loop
+        LDR   R6, [R0], #4     ; load next array element, increment pointer
+        CMP   R6, R2
+        BEQ   Found
 
-    ADD R4, R0, R2, LSL #2 ; R4 = address of array[i]
-    LDR R5, [R4]           ; R5 = array[i]
+        ADD   R4, R4, #1
+        SUBS  R5, R5, #1
+        BNE   Loop
 
-    CMP R5, R3
-    BEQ found             ; if array[i] == target, found
+        ; Not found
+        MOV   R4, #-1
+        STR   R4, [R3]
+        B Done
 
-    ADD R2, R2, #1         ; i++
-    B search_loop
+Found
+        STR   R4, [R3]         ; store index
 
-found
-    ; R2 contains the index of the found element
-    B done
+Done
+        B Done
 
-not_found
-    MOV R2, #-1           ; R2 = -1 (not found)
+;-----------------------------------------
+        AREA mydata, DATA, READWRITE
+ARRAY   DCD 10, 22, 35, 47, 52, 61, 73, 84, 91, 100
+TARGET  DCD 52
+RESULT  DCD 0
 
-done
-    B done     
-	
-	
-
-STOP B STOP                
-NUM1 DCD 0xABCDF12, 0x12345, 0xDCEF, 0xAB1234
-  
-
-
-    END
+        END

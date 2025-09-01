@@ -1,4 +1,4 @@
-    AREA RESET, DATA, READONLY ; Hex = (Upper nibble >> 4) × 10 + (Lower nibble & 0x0F)
+    AREA RESET, DATA, READONLY ; Hex = (Upper nibble >> 4) ï¿½ 10 + (Lower nibble & 0x0F)
  
     EXPORT __Vectors ; BCD TO HEX
 
