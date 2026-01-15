@@ -18,7 +18,9 @@ This repository contains the complete collection of laboratory codes developed a
 - [Embedded_Systems](./Sem%20V/Embedded%20Systems)
 - [Information_Security](./Sem%20V/Information%20Security)
 
-
+### Sem VI
+- [Mobile_Application_Development](./Sem%20VI/Mobile%20Application%20Development)
+- [Network_Programming](./Sem%20VI/Network_Programming)
 ---
 
 
