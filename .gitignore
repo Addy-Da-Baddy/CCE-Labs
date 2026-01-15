@@ -1,0 +1,104 @@
+# Binary executables
+*.exe
+*.out
+*.app
+*.bin
+*.elf
+a.out
+
+# Compiled Object files
+*.o
+*.obj
+*.ko
+*.slo
+*.lo
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.la
+*.a
+*.lib
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# IDEs and Editors
+.idea/
+.eclipse/
+*.swp
+*.swo
+*~
+.DS_Store
+*.bak
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+target/
+.classpath
+.project
+.settings/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Node.js (if any)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# Assembly
+*.lst
+*.hex
+
+# Backup files
+*~
+*.backup
+*.bak
+*.orig
