@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Football Scorers (ListView)" />
+
+    <Button
+        android:id="@+id/btnGridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Teams (GridView)" />
+
+    <Button
+        android:id="@+id/btnTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stats Tabs (TabLayout)" />
+
+    <Button
+        android:id="@+id/btnTableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Match Stats (TableLayout)" />
+
+</LinearLayout>

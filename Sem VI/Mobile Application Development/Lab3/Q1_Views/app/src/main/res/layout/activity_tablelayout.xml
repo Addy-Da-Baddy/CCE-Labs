@@ -1,0 +1,23 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1">
+
+    <TableRow>
+        <TextView android:text="Match" android:padding="8dp"/>
+        <TextView android:text="Goals" android:padding="8dp"/>
+        <TextView android:text="Possession" android:padding="8dp"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView android:text="Real Madrid vs PSG"/>
+        <TextView android:text="3 - 2"/>
+        <TextView android:text="55% - 45%"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView android:text="Man City vs Bayern"/>
+        <TextView android:text="2 - 2"/>
+        <TextView android:text="60% - 40%"/>
+    </TableRow>
+</TableLayout>
