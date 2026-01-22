@@ -60,7 +60,7 @@ int main(){
     }
     printf("\n Connection Established with Client\n");
 
-    while(1){
+    for(int i=0;;i++){
 
         printf("\n Server: ");
         fgets(buff,BUFFER_SIZE,stdin);
